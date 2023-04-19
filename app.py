@@ -91,7 +91,7 @@ def get_current_price(crypto):
 
 # Place buy order through Alpaca API
 def place_buy_order(quantity, crypto):
-    rest_api.submit_order(symbol=crypto, qty=quantity, type="market", side="buy", time_in_force="day")
+    rest_api.submit_order(symbol="ETHUSD", qty=quantity, type="market", side="buy", time_in_force="gtc")
     return
 
 # Function to place orders when dollar cost averaging
@@ -128,7 +128,7 @@ def dollar_cost_average(crypto, position_size):
 
 # User input for timeframe, position sizing, cryptocurrency
 timeframe = input("Enter DCA time frame (day, week, month): ")
-posititon_size = float(input("Enter how many dollars you want to buy of the crypto each interval: "))
+position_size = float(input("Enter how many dollars you want to buy of the crypto each interval: "))
 crypto = "ETH/USD"
 
 timeframe_to_seconds = {
